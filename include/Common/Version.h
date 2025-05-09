@@ -7,7 +7,7 @@
 
 #include <cstddef> /// for size_t
 
-namespace SelComp {
+namespace Resume {
 
     /// The Version struct is used to carry around the major, minor and patch level.
     struct Version
@@ -26,11 +26,6 @@ namespace SelComp {
     /// exit.
     [[noreturn]] void die(const char *fileName, size_t lineNumber,
                           const char *reason);
-
-    class Selector {
-
-    };
-
 } // SelComp
 
 #endif //SELECTOR_H

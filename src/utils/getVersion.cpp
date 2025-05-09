@@ -2,13 +2,13 @@
 // Created by joshua on 09/05/2025.
 //
 
-#include "Selector/Selector.h"
+#include "../../include/Common/Version.h"
 
 #include <cstdlib>
 #include <iostream>
 
 using namespace std;
-using namespace SelComp;
+using namespace Resume;
 
 int main() {
     const Version &version = getVersion();
