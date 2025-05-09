@@ -40,7 +40,7 @@ find_package(GTest REQUIRED
 # Libraries and executables
 # -------------------------------------------------------------------
 
-add_library(resume_selector STATIC lib/Selector/Selector.cpp)
+add_library(resume_selector STATIC lib/Common/Version.cpp)
 target_compile_features(resume_selector PUBLIC cxx_std_20)
 target_include_directories(resume_selector
         PUBLIC ${CMAKE_SOURCE_DIR}/include)
