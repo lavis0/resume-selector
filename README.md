@@ -49,7 +49,7 @@ To get a local copy up and running, follow these steps.
 
 1. Clone the repository
    ```sh
-   git clone https://github.com/yourusername/resume_selector.git
+   git clone https://github.com/lavis/resume_selector.git
    ```
 2. Create a build directory
    ```sh
@@ -67,7 +67,7 @@ To get a local copy up and running, follow these steps.
 
 ## Usage
 
-### Command Line Version
+### Command Line Version (Not yet implemented)
 
 The application initially comes with a command-line interface for testing the core functionality:
 
@@ -122,7 +122,7 @@ Contributions are what make the open source community such an amazing place to l
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
-Joshua - [@LinkedIn](https://linkedin.com/joshua-banga) - josh@folient.com
+Joshua - [LinkedIn](https://linkedin.com/in/joshua-banga) - josh@folient.com
 
 Project Link: [https://github.com/lavis0/resume_selector](https://github.com/yourusername/resume_selector)
 ## Acknowledgements
