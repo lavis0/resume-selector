@@ -8,10 +8,10 @@
 
 namespace
 {
-    constexpr Resume::Version version = {.major = 0, .minor = 1, .patch = 0};
+    constexpr ResumeEditor::Version version = {.major = 0, .minor = 1, .patch = 0};
 }
 
-namespace Resume {
+namespace ResumeEditor {
     const Version &getVersion() { return version; }
 
     void die(const char *fileName, const size_t lineNumber, const char *reason)

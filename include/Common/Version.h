@@ -7,7 +7,7 @@
 
 #include <cstddef> /// for size_t
 
-namespace Resume {
+namespace ResumeEditor {
 
     /// The Version struct is used to carry around the major, minor and patch level.
     struct Version
@@ -26,6 +26,6 @@ namespace Resume {
     /// exit.
     [[noreturn]] void die(const char *fileName, size_t lineNumber,
                           const char *reason);
-} // SelComp
+} // ResumeEditor
 
 #endif //SELECTOR_H
