@@ -39,21 +39,46 @@ find_package(GTest REQUIRED
 # ==================================================================
 # Libraries and executables
 # -------------------------------------------------------------------
+set(COMMON_SOURCES
+    lib/Common/Version.cpp)
 
-add_library(resume_selector STATIC lib/Common/Version.cpp)
-target_compile_features(resume_selector PUBLIC cxx_std_20)
-target_include_directories(resume_selector
+set(RESUME_SOURCES
+        lib/Resume/ResumeData.cpp)
+
+#set(STORAGE_SOURCES
+#        lib/Storage/CSVReader.cpp
+#        lib/Storage/CSVWriter.cpp)
+
+#set(LATEX_SOURCES
+#        lib/LaTeX/LaTeXGenerator.cpp
+#        lib/LaTeX/TemplateManager.cpp
+#        lib/LaTeX/PDFCompiler.cpp)
+
+add_library(resume_core STATIC
+        ${COMMON_SOURCES}
+        ${RESUME_SOURCES})
+#        ${STORAGE_SOURCES}
+#        ${LATEX_SOURCES})
+
+target_compile_features(resume_core PUBLIC cxx_std_20)
+target_include_directories(resume_core
         PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
+# Utilities
 add_executable(selector-getVersion src/utils/getVersion.cpp)
-target_link_libraries(selector-getVersion resume_selector)
+target_link_libraries(selector-getVersion resume_core)
+
+# Main application
+add_executable(resume-cli src/main.cpp)
+target_link_libraries(resume-cli resume_core)
+
 
 # ===================================================================
 # Testing
 # -------------------------------------------------------------------
 
 add_executable(selector-test tests/main.cpp)
-target_link_libraries(selector-test GTest::gtest resume_selector)
+target_link_libraries(selector-test GTest::gtest resume_core)
 add_custom_target(check
         COMMAND selector-test --gtest_color=yes --gtest_output=xml:selector-test.xml
 )
