@@ -77,7 +77,10 @@ target_link_libraries(resume-cli resume_core)
 # Testing
 # -------------------------------------------------------------------
 
-add_executable(selector-test tests/main.cpp)
+add_executable(selector-test tests/main.cpp
+        tests/Resume/PersonalInfoTest.cpp)
+#        tests/Resume/ExperienceTest.cpp
+#        tests/Resume/ResumeDataTest.cpp)
 target_link_libraries(selector-test GTest::gtest resume_core)
 add_custom_target(check
         COMMAND selector-test --gtest_color=yes --gtest_output=xml:selector-test.xml
