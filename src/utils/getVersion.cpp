@@ -8,7 +8,7 @@
 #include <iostream>
 
 using namespace std;
-using namespace Resume;
+using namespace ResumeEditor;
 
 int main() {
     const Version &version = getVersion();
