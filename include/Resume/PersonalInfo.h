@@ -6,6 +6,7 @@
 #define PERSONALINFO_H
 
 #include <string>
+#include <regex>
 
 namespace ResumeEditor {
 
@@ -13,11 +14,17 @@ class PersonalInfo final {
 public:
     PersonalInfo() = default;
     PersonalInfo(std::string name,
-        std::string email,
-        std::string phone,
-        std::string linkedIn,
-        std::string github,
-        std::string website);
+                std::string email,
+                std::string phone,
+                std::string linkedIn,
+                std::string github,
+                std::string website)
+        : name(std::move(name)), 
+        email(std::move(email)), 
+        phone(std::move(phone)),
+        linkedIn(std::move(linkedIn)), 
+        github(std::move(github)), 
+        website(std::move(website)) {}
 
     virtual ~PersonalInfo() = default;
 
@@ -65,8 +72,19 @@ public:
     }
 
     /// validation
-    bool isValidEmail() const;
-    bool isValidPhone() const;
+    bool isValidEmail() const {
+    if (email.empty()) return false;
+    
+    std::regex emailPattern(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");
+    return std::regex_match(email, emailPattern);
+    }
+
+    bool isValidPhone() const {
+        if (phone.empty()) return false;
+        
+        std::regex phonePattern(R"((\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4})");
+        return std::regex_match(phone, phonePattern);
+    }
 
 private:
     std::string name;
